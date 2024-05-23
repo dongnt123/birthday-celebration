@@ -8,6 +8,7 @@ import { Dancing_Script } from "next/font/google";
 import AnimatedText from "@/components/shared/AnimatedText";
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
+import { userContent } from "@/lib/constant";
 
 const dancingScript = Dancing_Script({ subsets: ["latin"] });
 
@@ -63,7 +64,7 @@ const ContentBirthdayThree = () => {
             animate="visible"
             initial="hidden"
             className="text-lg w-full"
-          >Happy Birthday to Trà My 🥳</motion.p>
+          >Happy Birthday to {userContent.FULL_NAME} 🥳</motion.p>
           {!endContentOne && <AnimatedText text="Chúc cho bông hoa này tuổi mới luôn luôn xinh đẹp 😘 ><" delay={1} end={500} setFinish={setFinishThird} />}
           {finishThird && (<AnimatedText text="Thật mạnh mẽ để đương đầu với đời nhưng không quên dịu dàng, iu thương chính bản thân mình 😁" delay={1} end={500} setFinish={setFinishFourth} />)}
           {finishThird && finishFourth && (<AnimatedText text="Cuối cùng là sớm đạt được những kỳ vọng của bản thân trong hành trình tiếp theo nhé 😘" delay={1} end={1000} setFinish={setFinishFifth} />)}
@@ -75,7 +76,7 @@ const ContentBirthdayThree = () => {
           )}
           {lastContent && (
             <div className={`${dancingScript.className} text-center text-lg w-full`}>
-              <AnimatedText text="Chúc mừng ngày sinh nhật vui vẻ. 🥳🎉" delay={1} end={1000} setFinish={setLastContentQoute} />
+              <AnimatedText text="Chúc cậu sinh nhật vui vẻ. 🥳🎉" delay={1} end={1000} setFinish={setLastContentQoute} />
             </div>
           )}
         </div>
@@ -86,7 +87,7 @@ const ContentBirthdayThree = () => {
         <AlertDialogContent className="w-[90%] m-auto rounded-lg max-w-[400px]">
           <AlertDialogHeader className="w-full flex flex-col justify-center items-center gap-y-[20px]">
             <Image src="/gif/bear-modal.gif" alt="Gif" priority width={100} height={100} className="rounded-full object-cover" />
-            <AlertDialogTitle>Trà My có muốn nhận quà tiếp không nhỉ? 😁😘</AlertDialogTitle>
+            <AlertDialogTitle>{userContent.FULL_NAME} có muốn nhận quà tiếp không nhỉ? 😁😘</AlertDialogTitle>
             <AlertDialogTitle className="text-md">Chọn đi nè 😄</AlertDialogTitle>
           </AlertDialogHeader>
           <AlertDialogFooter className="flex flex-col gap-y-3 w-full">
@@ -114,7 +115,7 @@ const ContentBirthdayThree = () => {
         <AlertDialogContent className="w-[90%] m-auto rounded-lg max-w-[400px] py-[40px]">
           <AlertDialogHeader className="w-full flex flex-col justify-center items-center gap-y-[20px]">
             <Image src="/gif/bear-modal-agree.gif" alt="Gif" priority width={100} height={100} className="rounded-full object-cover" />
-            <AlertDialogTitle className="text-md">Cứ bình tĩnh nào My, quà nè! 😄</AlertDialogTitle>
+            <AlertDialogTitle className="text-md">Cứ bình tĩnh nào, quà nè! 😄</AlertDialogTitle>
           </AlertDialogHeader>
         </AlertDialogContent>
       </AlertDialog>
@@ -123,7 +124,7 @@ const ContentBirthdayThree = () => {
         <AlertDialogContent className="w-[90%] m-auto rounded-lg max-w-[400px] py-[40px]">
           <AlertDialogHeader className="w-full flex flex-col justify-center items-center gap-y-[20px]">
             <Image src="/gif/bear-modal-reject.gif" alt="Gif" priority width={100} height={100} className="rounded-full object-cover" />
-            <AlertDialogTitle className="text-md">Thôi đừng dỗi nữa, quà ở đây nè!😄</AlertDialogTitle>
+            <AlertDialogTitle className="text-md">Thôi đừng dỗi nữa, quà ở đây nè! 😄</AlertDialogTitle>
           </AlertDialogHeader>
         </AlertDialogContent>
       </AlertDialog>

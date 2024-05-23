@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 import ContentBirthdayThree from "./ContentBirthdayThree";
+import { userContent } from "@/lib/constant";
 
+const MAX_CANDLE_COUNT = 5;
 const containerVariants = {
   hidden: {
     scale: 0
@@ -20,33 +22,38 @@ const containerVariants = {
 
 const ContentBirthday = () => {
 
-  const [candleOneOff, setCandleOneOff] = useState<boolean>(false);
-  const [candleTwoOff, setCandleTwoOff] = useState<boolean>(false);
-  const [candleThreeOff, setCandleThreeOff] = useState<boolean>(false);
-  const [candleFourOff, setCandleFourOff] = useState<boolean>(false);
+  const [candleCount, setCandleCount] = useState<number>(0);
   const [showContent, setShowContent] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (candleOneOff && candleTwoOff && candleThreeOff && candleFourOff) {
-      setShowContent(true);
-    }
-  }, [candleOneOff, candleTwoOff, candleThreeOff, candleFourOff])
+  const handleBlowCandle = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const target = e.target as HTMLDivElement;
+    target.classList.add("opacity-0");
+
+    const count = candleCount;
+    if (candleCount === MAX_CANDLE_COUNT - 1) setShowContent(true);
+    setCandleCount(candleCount + 1);
+  };
 
   return (
     <>
       {!showContent ? (
         <>
-          <h1>Thổi 21 cây nến thì mệt quá, thôi thổi tạm 4 cây thôi nhé! 🤣🎉</h1>
+          <h1>Thổi {userContent.AGE} cây nến thì mệt quá, thôi thổi tạm {MAX_CANDLE_COUNT} cây thôi nhé! 🤣🎉</h1>
           <motion.div
             variants={containerVariants}
             animate="visible"
             initial="hidden"
             className="w-fit mx-auto flex items-center justify-center mt-3"
           >
-            <Image src="/images/candle.png" alt="Candle" priority width={50} height={100} className={`trasition-all duration-300 ${candleOneOff ? "opacity-0" : "opacity-100"}`} onClick={() => setCandleOneOff(true)} />
-            <Image src="/images/candle.png" alt="Candle" priority width={50} height={100} className={`trasition-all duration-300 ${candleTwoOff ? "opacity-0" : "opacity-100"}`} onClick={() => setCandleTwoOff(true)} />
-            <Image src="/images/candle.png" alt="Candle" priority width={50} height={100} className={`trasition-all duration-300 ${candleThreeOff ? "opacity-0" : "opacity-100"}`} onClick={() => setCandleThreeOff(true)} />
-            <Image src="/images/candle.png" alt="Candle" priority width={50} height={100} className={`trasition-all duration-300 ${candleFourOff ? "opacity-0" : "opacity-100"}`} onClick={() => setCandleFourOff(true)} />
+            {(() => {
+              const content = [];
+              for (let i = 0; i < MAX_CANDLE_COUNT; i++) {
+                content.push(
+                  <Image src="/images/candle.png" alt="Candle" priority width={50} height={100} key={i} className={`trasition-all duration-300`} onClick={(e) => handleBlowCandle(e)} />
+                );
+              }
+              return content;
+            })()}
           </motion.div>
         </>
       ) : (

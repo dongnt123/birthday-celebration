@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 import AnimatedText from "@/components/shared/AnimatedText";
 import ContentBirthday from "./ContentBirthday";
+import { userContent } from "@/lib/constant";
 
 const allGifs = [
   "/gif/gif-1.gif",
@@ -53,7 +54,7 @@ const ContentBody = () => {
       </div>
 
       <div className="mt-[30px] font-semibold text-white">
-        <AnimatedText text="Xin chào Trà My nhé ✨" delay={1} end={500} setFinish={setFinishFirst} />
+        <AnimatedText text={`Xin chào ${userContent.FULL_NAME} nhé! ✨`} delay={1} end={500} setFinish={setFinishFirst} />
       </div>
       {finishFirst && (
         <motion.div

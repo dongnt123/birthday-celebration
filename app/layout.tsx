@@ -5,7 +5,7 @@ import "./globals.css";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "I Love You",
+  title: "Happy birthday!!!",
   description: "Love you forever!!!",
 };
 
