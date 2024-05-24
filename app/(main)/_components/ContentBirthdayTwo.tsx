@@ -29,7 +29,6 @@ const ContentBirthday = () => {
     const target = e.target as HTMLDivElement;
     target.classList.add("opacity-0");
 
-    const count = candleCount;
     if (candleCount === MAX_CANDLE_COUNT - 1) setShowContent(true);
     setCandleCount(candleCount + 1);
   };
