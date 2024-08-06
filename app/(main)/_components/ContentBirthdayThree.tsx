@@ -75,9 +75,14 @@ const ContentBirthdayThree = () => {
             </>
           )}
           {lastContent && (
-            <div className={`${dancingScript.className} text-center text-lg w-full`}>
-              <AnimatedText text="Chúc cậu sinh nhật vui vẻ. 🥳🎉" delay={1} end={1000} setFinish={setLastContentQoute} />
-            </div>
+            <>
+              <div className={`${dancingScript.className} text-center text-lg w-full`}>
+                <AnimatedText text="Chúc cậu sinh nhật vui vẻ. 🥳🎉" delay={1} end={1000} setFinish={setLastContentQoute} />
+              </div>
+              {lastContentQoute && (
+                <div className="text-left text-xs w-full mt-6">*** Tớ có quà tặng cậu nhưng nay cậu nghỉ mất rồi. Mai lên nhận nhé 😄</div>
+              )}
+            </>
           )}
         </div>
       )}
