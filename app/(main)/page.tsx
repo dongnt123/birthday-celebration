@@ -35,14 +35,14 @@ export default function Home() {
       {!isOpenGift ? (
         <div className="absolute bg-black/100 w-full h-full top-0 left-0 flex flex-col items-center justify-center gap-y-[60px] px-5">
           <Image src="/images/gift-box.png" alt="Gift" priority width={80} height={80} onClick={() => setIsOpenGift(true)} />
-          <p className="font-semibold text-md text-white text-center w-full">Nhấn vào để nhận quà đi chứ còn đợi gì nữa? 😂</p>
+          <p className="font-semibold text-md text-white text-center w-[80%] md:w-full">Nhấn vào để nhận quà đi chứ còn đợi gì nữa? 😂</p>
         </div>
       ) : (
         <div className="absolute w-full h-full top-0 left-0">
           <AlertDialog open={openNameInput} onOpenChange={setOpenNameInput}>
             <AlertDialogContent className="w-[90%] m-auto rounded-lg max-w-[400px]">
               <AlertDialogHeader className="w-full flex flex-col justify-center items-center gap-y-[20px]">
-                <AlertDialogTitle>Nhập tên của cậu vào nhé!</AlertDialogTitle>
+                <AlertDialogTitle>Nhập tên của em vào nhé!</AlertDialogTitle>
                 <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="" className="w-full focus-visible:ring-0 focus-visible:ring-offset-0 max-w-[300px]" />
               </AlertDialogHeader>
               <AlertDialogFooter>
