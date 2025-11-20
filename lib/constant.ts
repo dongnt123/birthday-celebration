@@ -1,4 +1,4 @@
 export const userContent = {
-  FULL_NAME: "Anh Thư",
-  AGE: 26
+  FULL_NAME: "Kim Chi",
+  AGE: 25
 }
